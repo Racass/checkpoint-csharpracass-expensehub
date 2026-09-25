@@ -2,9 +2,12 @@
 
 ## Repositório
 
-Crie um repositório privado com **Use this template** e adicione o professor como colaborador. Não use fork.
+Crie um repositório público com **Use this template** e adicione os demais integrantes do grupo como colaboradores. Não use fork.
 
 As issues do repositório `Racass/checkpoint-csharpracass-expensehub` são o backlog central e permanecerão abertas.
+
+Os commits serão considerados na avaliação da participação. Todos os integrantes
+devem possuir mais de um commit no repositório.
 
 ## Uma feature por fluxo
 
@@ -33,7 +36,6 @@ Inclua:
 - como validar;
 - evidências relevantes;
 - impactos em segurança e autorização;
-- uso de IA relacionado;
 - checklist concluído.
 
 Modelo de checklist:
@@ -46,7 +48,6 @@ Modelo de checklist:
 - [ ] Build sem erros
 - [ ] Pipeline analisado
 - [ ] Documentação atualizada
-- [ ] AI-USAGE.md atualizado
 ```
 
 ## Commits

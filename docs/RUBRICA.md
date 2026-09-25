@@ -125,7 +125,6 @@ Ele:
 
 - não ultrapassa nota 10;
 - não ultrapassa gates;
-- não recupera I02, I03, I06, I09 ou I10;
 - deve integrar dados reais, tratar erros e possuir instruções;
 - deve ser demonstrado em gravação curta anexada à pull request final.
 

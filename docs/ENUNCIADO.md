@@ -14,10 +14,12 @@ O sistema deve proteger cada operação considerando:
 
 ## Formato
 
-- Trabalho individual.
-- Prazo informado pelo professor: 15–20 dias.
-- Entrega em repositório privado criado por **Use this template**.
-- Inteligência Artificial (IA) permitida e documentada.
+- Trabalho em grupos de até 3 pessoas.
+- Prazo: 13 de outubro de 2026.
+- Entrega em repositório público criado por **Use this template**.
+- Os commits serão utilizados como parte da avaliação da participação dos alunos.
+- Todos os integrantes do grupo devem possuir mais de um commit no repositório.
+- Inteligência Artificial (IA) permitida.
 - Sem deploy obrigatório.
 - Frontend opcional.
 
@@ -41,11 +43,9 @@ O repositório deve:
 - compilar;
 - executar conforme as instruções;
 - implementar as issues do backlog central;
-- possuir histórico organizado em branches e pull requests;
 - possuir testes unitários significativos;
 - passar pelo pipeline de qualidade;
-- não conter segredos, binários ou artefatos locais;
-- registrar o uso de IA em `AI-USAGE.md`.
+- não conter segredos, binários ou artefatos locais.
 
 ## Fora de escopo
 

@@ -14,11 +14,9 @@ Roles acumulam permissões, mas ninguém pode aprovar ou pagar o próprio reembo
 
 ## Usuários e seed
 
-O seed deve criar:
-
-- roles `Admin`, `Employee`, `Approver`, `Finance` e `Auditor`;
-- somente uma conta Admin;
-- vínculo da conta inicial com a role Admin.
+O seed de usuários deve criar apenas uma conta Admin e vinculá-la à role `Admin`.
+Nenhum outro usuário pode ser criado pelo seed. As roles `Admin`, `Employee`,
+`Approver`, `Finance` e `Auditor` devem existir para o funcionamento da aplicação.
 
 Demais usuários devem ser criados por requisições HTTP ou HTTPS. O cadastro não pode aceitar roles.
 
@@ -40,7 +38,7 @@ Cada reembolso possui um único valor. Não implemente coleção de itens.
 | Identificador | Gerado pelo servidor |
 | Proprietário | Obtido do usuário autenticado |
 | Descrição | Obrigatória, entre 10 e 500 caracteres |
-| Valor | Entre R$ 0,01 e R$ 100.000,00; usar `decimal` |
+| Valor | Entre R$ 0,01 e `Int32.MaxValue` (R$ 2.147.483.647,00); usar `decimal` |
 | Data da despesa | Válida e não futura |
 | Estado | Definido exclusivamente pelo servidor |
 | Justificativa | Obrigatória na reprovação, entre 10 e 500 caracteres |
@@ -78,6 +76,33 @@ Não existem reabertura, cancelamento, exclusão ou reenvio. Repetir uma transi�
 | `POST /api/expenses/{id}/reject` | Reprovar com justificativa |
 | `POST /api/expenses/{id}/pay` | Registrar pagamento |
 | `GET /api/expenses/{id}/history` | Consultar histórico |
+
+## Acesso por rota e perfil
+
+`Sim*` significa que o perfil pode acessar a rota, mas a operação depende também
+de ownership, estado atual ou visibilidade do recurso. Roles podem ser acumuladas;
+cada coluna descreve a permissão concedida por aquela role.
+
+| Método e rota | Employee | Approver | Finance | Auditor | Admin |
+|---|:---:|:---:|:---:|:---:|:---:|
+| `POST /register` | Sim | Sim | Sim | Sim | Sim |
+| `POST /login` | Sim | Sim | Sim | Sim | Sim |
+| `GET /api/admin/users` | Não | Não | Não | Não | Sim |
+| `PUT /api/admin/users/{id}/roles` | Não | Não | Não | Não | Sim |
+| `POST /api/expenses` | Sim | Não | Não | Não | Não |
+| `PUT /api/expenses/{id}` | Sim* | Não | Não | Não | Não |
+| `GET /api/expenses` | Sim* | Sim* | Sim* | Sim | Não |
+| `GET /api/expenses/{id}` | Sim* | Sim* | Sim* | Sim | Não |
+| `POST /api/expenses/{id}/submit` | Sim* | Não | Não | Não | Não |
+| `POST /api/expenses/{id}/approve` | Não | Sim* | Não | Não | Não |
+| `POST /api/expenses/{id}/reject` | Não | Sim* | Não | Não | Não |
+| `POST /api/expenses/{id}/pay` | Não | Não | Sim* | Não | Não |
+| `GET /api/expenses/{id}/history` | Sim* | Sim* | Sim* | Sim | Não |
+
+As rotas `POST /register` e `POST /login` são públicas; a indicação `Sim` significa
+que usuários desses perfis também podem acessá-las. Nas demais rotas, uma role
+marcada como `Não` não concede acesso. Um usuário com múltiplas roles recebe a
+união das permissões, sem eliminar as proibições de autoaprovação e autopagamento.
 
 ## Respostas HTTP
 

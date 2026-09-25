@@ -1,18 +1,21 @@
 # Checkpoint 2 — ExpenseHub
 
-Checkpoint individual de C# para construção de uma Application Programming Interface (API) corporativa de reembolsos.
+Checkpoint de C# em grupos de até 3 pessoas para construção de uma Application Programming Interface (API) corporativa de reembolsos.
 
-Você terá entre 15 e 20 dias para implementar autenticação, autorização, fluxo de aprovação e reprovação, pagamento simulado, histórico e testes unitários.
+O prazo de entrega é **13 de outubro de 2026**. O grupo deverá implementar autenticação, autorização, fluxo de aprovação e reprovação, pagamento simulado, histórico e testes unitários.
 
 ## Criar seu repositório
 
 1. Clique em **Use this template**.
 2. Selecione **Create a new repository**.
-3. Crie um repositório **privado** em sua conta.
-4. Adicione o professor como colaborador.
-5. Clone o seu repositório.
+3. Crie um repositório **público** em uma das contas do grupo.
+4. Adicione os demais integrantes como colaboradores.
+5. Clone o repositório.
 
 Não use fork. As issues permanecem neste repositório original como especificação comum da turma.
+
+Os commits serão utilizados para avaliar a participação. Todos os membros do grupo
+devem possuir mais de um commit no repositório.
 
 ## Fluxo de trabalho
 
@@ -82,11 +85,9 @@ Os testes unitários devem executar sem banco, rede ou serviço externo.
 
 Entregue:
 
-- URL do repositório privado;
-- acesso do professor como colaborador;
+- URL do repositório público;
 - commit Secure Hash Algorithm (SHA) final;
 - integração contínua executada;
-- documentação atualizada;
-- arquivo `AI-USAGE.md` preenchido.
+- documentação atualizada.
 
 O projeto deve compilar sem erros e ser entregue sem warnings para receber a pontuação integral de Qualidade de Código.
